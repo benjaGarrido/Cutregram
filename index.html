@@ -8,16 +8,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/PostCollection.js"></script>
+    <script src="scripts/controllers/MyPostCollection.js"></script>
+    <script src="scripts/controllers/NavigationBar.js"></script>
 </head>
 <body ng-app="Cutregram">
     <div class="container">
         <header>
             <h1>Cutregram</h1>
         </header>
-        <nav>
+        <nav ng-controller="navigationBarCtrl">
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active"><a href="#/todosposts">Todos los posts</a></li>
-                <li role="presentation"><a href="#/miosposts">Mis posts</a></li>
+                <li role="presentation"><a href="#/misposts">Mis posts</a></li>
             </ul>
         </nav>
         <section ng-view></section>

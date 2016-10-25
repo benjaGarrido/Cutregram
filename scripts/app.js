@@ -23,8 +23,8 @@ app.config(function ($routeProvider) {
         templateUrl:'views/PostCollection.html'
     });
     $routeProvider.when('/misposts',{
-        controller:'',
-        templateUrl:''
+        controller:'myPostColletionCtrl',
+        templateUrl:'views/MyPostCollection.html'
     });
     $routeProvider.otherwise({
         redirectTo:'/todosposts'
