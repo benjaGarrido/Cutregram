@@ -1,9 +1,10 @@
 /**
  * Created by benjamingarridobarreiro on 25/10/16.
  */
-var app = angular.module('Cutregram',[]);
+var app = angular.module('Cutregram',['ngRoute']);
 
 // Inyectamos en fase config los proveedores necesarios
+
 app.config(function ($httpProvider) {
     // Configuramos el servicio $http para que envie la cabcera necesaria
     $httpProvider.defaults.headers.common = {
@@ -14,4 +15,18 @@ app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.post = {};
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
+});
+app.config(function ($routeProvider) {
+    // Definimos las distintas rutas que manejamos en la aplicación
+    $routeProvider.when('/todosposts',{
+        controller:'postColletionCtrl',
+        templateUrl:'views/PostCollection.html'
+    });
+    $routeProvider.when('/misposts',{
+        controller:'',
+        templateUrl:''
+    });
+    $routeProvider.otherwise({
+        redirectTo:'/todosposts'
+    });
 });
