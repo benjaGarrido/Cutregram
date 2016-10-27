@@ -1,11 +1,14 @@
 /**
  * Created by benjamingarridobarreiro on 25/10/16.
  */
-angular.module('Cutregram').controller('postColletionCtrl',['$scope','$http',function ($scope,$http) {
+angular.module('Cutregram').controller('postColletionCtrl',['$scope','PostCollection',function ($scope,PostCollection) {
     // Autenticarse primero cutregram-sp.appspot.com/webapp/index.html
 
+    $scope.posts=PostCollection.data;
+
+
     // Hacemos la petición de post al servidor
-    $http.get('http://cutregram-sp.appspot.com/api/1/posts').then(
+    /*$http.get('http://cutregram-sp.appspot.com/api/1/posts').then(
         // Petición OK
         function (response) {
             $scope.posts=response.data;
@@ -13,6 +16,5 @@ angular.module('Cutregram').controller('postColletionCtrl',['$scope','$http',fun
         // Petición KO
         function (err) {
         }
-    );
-    $http.post('http://cutregram-sp.appspot.com/api/1/posts',{});
+    );*/
 }]);

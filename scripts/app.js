@@ -20,11 +20,21 @@ app.config(function ($routeProvider) {
     // Definimos las distintas rutas que manejamos en la aplicación
     $routeProvider.when('/todosposts',{
         controller:'postColletionCtrl',
-        templateUrl:'views/PostCollection.html'
+        templateUrl:'views/PostCollection.html',
+        resolve:{
+            PostCollection:['$http',function ($http) {
+                return $http.get('http://cutregram-sp.appspot.com/api/1/posts');
+            }]
+        }
     });
     $routeProvider.when('/misposts',{
         controller:'myPostColletionCtrl',
-        templateUrl:'views/MyPostCollection.html'
+        templateUrl:'views/MyPostCollection.html',
+        resolve:{
+            MyPost:['$http',function ($http) {
+                return $http.get('http://cutregram-sp.appspot.com/api/1/posts/me');
+            }]
+        }
     });
     $routeProvider.otherwise({
         redirectTo:'/todosposts'
