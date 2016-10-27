@@ -18,8 +18,8 @@
         </header>
         <nav ng-controller="navigationBarCtrl">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#/todosposts">Todos los posts</a></li>
-                <li role="presentation"><a href="#/misposts">Mis posts</a></li>
+                <li role="presentation" ng-class="{ 'active':rutaEsTodos() }"><a href="#/todosposts">Todos los posts</a></li>
+                <li role="presentation" ng-class="{ 'active':rutaEsMios() }"><a href="#/misposts">Mis posts</a></li>
             </ul>
         </nav>
         <section ng-view></section>
