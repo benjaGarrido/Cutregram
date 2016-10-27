@@ -5,25 +5,25 @@ var app = angular.module('Cutregram',['ngRoute']);
 
 // Inyectamos en fase config los proveedores necesarios
 
-app.config(function ($httpProvider) {
+app.config(['$httpProvider','Properties',function ($httpProvider,Properties) {
     // Configuramos el servicio $http para que envie la cabcera necesaria
     $httpProvider.defaults.headers.common = {
-        'X-Cutregram-Api-Key':'f8195d4cbb1b4c35b9478778af67a4d0'
+        'X-Cutregram-Api-Key':Properties.apiKey
     };
 
     // Configuramos las cabeceras por defecto para evitar problemas de CORS.
     $httpProvider.defaults.headers.post = {};
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
-});
-app.config(function ($routeProvider) {
+}]);
+app.config(['$routeProvider','Properties',function ($routeProvider,Properties) {
     // Definimos las distintas rutas que manejamos en la aplicación
     $routeProvider.when('/todosposts',{
         controller:'postColletionCtrl',
         templateUrl:'views/PostCollection.html',
         resolve:{
             PostCollection:['$http',function ($http) {
-                return $http.get('http://cutregram-sp.appspot.com/api/1/posts',{
+                return $http.get(Properties.backendUrl + '/posts',{
                     'cache':true
                 });
             }]
@@ -34,7 +34,7 @@ app.config(function ($routeProvider) {
         templateUrl:'views/MyPostCollection.html',
         resolve:{
             MyPost:['$http',function ($http) {
-                return $http.get('http://cutregram-sp.appspot.com/api/1/posts/me',{
+                return $http.get(Properties.backendUrl + '/posts/me',{
                     'cache':true
                 });
             }]
@@ -43,4 +43,4 @@ app.config(function ($routeProvider) {
     $routeProvider.otherwise({
         redirectTo:'/todosposts'
     });
-});
+}]);
