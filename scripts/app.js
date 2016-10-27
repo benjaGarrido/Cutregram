@@ -23,7 +23,9 @@ app.config(function ($routeProvider) {
         templateUrl:'views/PostCollection.html',
         resolve:{
             PostCollection:['$http',function ($http) {
-                return $http.get('http://cutregram-sp.appspot.com/api/1/posts');
+                return $http.get('http://cutregram-sp.appspot.com/api/1/posts',{
+                    'cache':true
+                });
             }]
         }
     });
@@ -32,7 +34,9 @@ app.config(function ($routeProvider) {
         templateUrl:'views/MyPostCollection.html',
         resolve:{
             MyPost:['$http',function ($http) {
-                return $http.get('http://cutregram-sp.appspot.com/api/1/posts/me');
+                return $http.get('http://cutregram-sp.appspot.com/api/1/posts/me',{
+                    'cache':true
+                });
             }]
         }
     });
