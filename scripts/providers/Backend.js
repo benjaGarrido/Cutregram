@@ -31,6 +31,12 @@ angular.module('Cutregram').provider('BackEnd',['$httpProvider',function ($httpP
                     return $http.get(urlBackend + '/posts/me',{
                         'cache':true
                     });
+                },
+                'sumarMeGusta':function (idPost) {
+                    return $http.post(urlBackend + '/posts/' + idPost + '/like');
+                },
+                'sumarNoMeGusta':function (idPost) {
+                    return $http.post(urlBackend + '/posts/' + idPost + '/dislike');
                 }
             };
         }]
