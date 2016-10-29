@@ -3,7 +3,15 @@
         <td><img ng-src="{{post.image_url}}" ng-if="post.image_url" alt="Imagen asociada" width="64" class="img-rounded"></td>
         <td>{{post.text}}</td>
         <td>{{post.author}}</td>
-        <td>{{post.likes}}</td>
-        <td>{{post.dislikes}}</td>
+        <td>
+            <button class="btn btn-primary" type="button">
+                Me gusta <span class="badge">{{post.likes}}</span>
+            </button>
+        </td>
+        <td>
+            <button class="btn btn-danger" type="button">
+                No me gusta <span class="badge">{{post.dislikes}}</span>
+            </button>
+        </td>
     </tr>
 </table>
