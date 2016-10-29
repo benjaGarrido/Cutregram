@@ -1,7 +1,7 @@
 /**
  * Created by benjamingarridobarreiro on 25/10/16.
  */
-var app = angular.module('Cutregram',['ngRoute']);
+var app = angular.module('Cutregram',['ngRoute','angular-loading-bar']);
 
 // Inyectamos en fase config los proveedores necesarios
 
