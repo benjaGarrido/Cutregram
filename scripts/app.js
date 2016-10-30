@@ -26,7 +26,7 @@ app.config(['$routeProvider',function ($routeProvider) {
         controller:'myPostColletionCtrl',
         templateUrl:'views/MyPostCollection.html',
         resolve:{
-            MyPost:['$http',function ($http) {
+            MyPost:['BackEnd',function (BackEnd) {
                 return BackEnd.obtenerMisPosts();
             }]
         }
