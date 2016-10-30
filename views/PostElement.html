@@ -1,0 +1,17 @@
+<tr>
+    <td><img ng-src="{{post.image_url}}" ng-if="post.image_url" alt="Imagen asociada" width="64" class="img-rounded"></td>
+    <td>
+        <div><strong>{{post.text}}</strong></div>
+        <div><small>{{post.author | SignatureFilter:post.created}}</small></div>
+    </td>
+    <td>
+        <button class="btn btn-primary" type="button" ng-click="meGusta()">
+            Me gusta <span class="badge">{{post.likes}}</span>
+        </button>
+    </td>
+    <td>
+        <button class="btn btn-danger" type="button" ng-click="noMeGusta()">
+            No me gusta <span class="badge">{{post.dislikes}}</span>
+        </button>
+    </td>
+</tr>
