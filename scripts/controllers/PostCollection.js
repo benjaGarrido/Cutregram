@@ -5,6 +5,7 @@ angular.module('Cutregram').controller('postColletionCtrl',['$scope','PostCollec
     // Autenticarse primero cutregram-sp.appspot.com/webapp/index.html
 
     $scope.posts = PostCollection.data;
+
     $scope.meGusta = function (post) {
         BackEnd.sumarMeGusta(post.id).then(
             function (response) {
@@ -12,6 +13,7 @@ angular.module('Cutregram').controller('postColletionCtrl',['$scope','PostCollec
             }
         );
     };
+
     $scope.noMeGusta = function (post) {
         BackEnd.sumarNoMeGusta(post.id).then(
             function (response) {
@@ -19,15 +21,4 @@ angular.module('Cutregram').controller('postColletionCtrl',['$scope','PostCollec
             }
         );
     };
-
-    // Hacemos la petición de post al servidor
-    /*$http.get('http://cutregram-sp.appspot.com/api/1/posts').then(
-        // Petición OK
-        function (response) {
-            $scope.posts=response.data;
-        },
-        // Petición KO
-        function (err) {
-        }
-    );*/
 }]);
