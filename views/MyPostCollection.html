@@ -1,6 +1,12 @@
 <header>
     <h2>Todos mis post</h2>
 </header>
+<form class="form-inline">
+    <div class="form-group">
+        <label for="filterField">Nombre</label>
+        <input type="text" ng-model="authorFilter" placeholder="filter" id="filterField">
+    </div>
+</form>
 <table class="table">
     <tr ng-repeat="post in posts">
         <td><img ng-src="{{post.image_url}}" ng-if="post.image_url" alt="Imagen asociada" width="64" class="img-rounded"></td>
