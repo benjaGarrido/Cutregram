@@ -10,7 +10,9 @@ angular.module('Cutregram').directive('bgPostElement',['BackEnd',function (BackE
         // Con scope establecemos la interfaz de comunicación
         scope:{
             // Con = establecemos enlace bidireccional
-            post:'='
+            post:'=',
+            // Con & establecemos notificación desde la directiva hacia scope padre (controlador de la vista asociada)
+            viewDetail:'&'
         },
         // Establecemos la lógica de la directiva y manipulamos el DOM en caso de necesitarlo
         link: function (scope) {
@@ -28,6 +30,12 @@ angular.module('Cutregram').directive('bgPostElement',['BackEnd',function (BackE
                         scope.post.dislikes++;
                     }
                 );
+            };
+
+            scope.notificarClick = function () {
+                scope.viewDetail({
+                    idPost:scope.post.id
+                });
             };
         }
     };

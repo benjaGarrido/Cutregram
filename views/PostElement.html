@@ -1,7 +1,7 @@
 <tr>
     <td><img ng-src="{{post.image_url}}" ng-if="post.image_url" alt="Imagen asociada" width="64" class="img-rounded"></td>
     <td>
-        <div><strong>{{post.text}}</strong></div>
+        <div><button class="btn btn-link" ng-click="notificarClick()">{{post.text}}</button></div>
         <div><small>{{post.author | SignatureFilter:post.created}}</small></div>
     </td>
     <td>
