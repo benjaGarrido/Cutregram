@@ -31,6 +31,15 @@ app.config(['$routeProvider',function ($routeProvider) {
             }]
         }
     });
+    $routeProvider.when('/detallepost/:idPost',{
+        controller:'detailPostCtrl',
+        templateUrl:'views/DetailPost.html',
+        resolve:{
+            Post:['BackEnd','$route',function (BackEnd,$route) {
+                return BackEnd.obtenerDetallePost($route.current.params.idPost);
+            }]
+        }
+    });
     $routeProvider.otherwise({
         redirectTo:'/todosposts'
     });
