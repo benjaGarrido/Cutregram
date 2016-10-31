@@ -32,8 +32,8 @@ app.config(['$routeProvider',function ($routeProvider) {
         }
     });
     $routeProvider.when('/detallepost/:idPost',{
-        controller:'detailPostCtrl',
-        templateUrl:'views/DetailPost.html',
+        controller:'postDetailCtrl',
+        templateUrl:'views/PostDetail.html',
         resolve:{
             Post:['BackEnd','$route',function (BackEnd,$route) {
                 return BackEnd.obtenerDetallePost($route.current.params.idPost);
