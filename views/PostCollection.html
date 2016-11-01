@@ -10,3 +10,5 @@
 <table class="table">
     <tr ng-repeat="post in posts | filter:{author:authorFilter}" bg-post-element post="post" view-detail="navegate(idPost)"></tr>
 </table>
+
+<ul uib-pagination ng-change="paginator.pageChanged()" ng-model="paginator.actualPage" total-items="paginator.totalElements" items-per-page="paginator.elementsPerPage" boundary-links="true" previous-text="&lt;" next-text="&gt;" first-text="&lt;&lt;" last-text="&gt;&gt;"></ul>
